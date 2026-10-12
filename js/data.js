@@ -47,7 +47,7 @@ const destinations = [
         id: "manila",
         name: "Manila",
         category: "City",
-        image: "../images/manila.jpg",
+        image: "/images/manila.jpg",
         description: "Explore the historical, cultural, and modern attractions of the Philippine capital.",
         attractions: [
             attr("Intramuros"),
