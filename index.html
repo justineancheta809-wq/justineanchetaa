@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LakbayPH | Philippine Travel Guide</title>
+
+    <meta
+        name="description"
+        content="LakbayPH - An interactive Philippine travel and tourism guide."
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="landing-open">
+    <section id="landing">
+        <div class="landing-clouds">☁️ ☁️ ☁️</div>
+        <div class="landing-content">
+            <p class="landing-tag">🇵🇭 Philippine Travel Guide</p>
+            <h1>Lakbay<span>PH</span></h1>
+            <p class="landing-sub">Discover beaches, mountains, and cities. Pick a place, watch your flight, and see everything you can visit.</p>
+            <div class="landing-buttons">
+                <button id="startBtn" class="primary-btn" onclick="enterApp(false)">Start Exploring</button>
+                <button id="landingFlyBtn" class="outline-btn" onclick="enterApp(true)">✈ Fly Me There</button>
+            </div>
+            <div class="landing-plane">✈</div>
+        </div>
+    </section>
+
+
+    <!-- =========================
+         NAVIGATION BAR
+    ========================== -->
+
+    <script>
+        // Landing buttons work on their own, even if other script files fail to load
+        function enterApp(goToFlight) {
+            var landing = document.getElementById("landing");
+            document.body.classList.remove("landing-open");
+            if (landing) {
+                landing.classList.add("hide");
+                setTimeout(function () { landing.style.display = "none"; }, 700);
+            }
+            if (goToFlight) {
+                setTimeout(function () {
+                    var f = document.getElementById("flight");
+                    if (f) f.scrollIntoView({ behavior: "smooth" });
+                }, 300);
+            }
+        }
+    </script>
+
+    <header class="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+                Lakbay<span>PH</span>
+            </a>
+
+            <button
+                id="menuBtn"
+                class="menu-btn"
+                type="button"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
+
+            <nav id="navMenu" class="nav-menu">
+
+                <a href="#home">Home</a>
+
+                <a href="#destinations">Destinations</a>
+
+                <a href="#matcher">Trip Matcher</a>
+
+                <a href="#planner">Travel Planner</a>
+
+                <a href="#favorites">Favorites</a>
+
+                <a href="#lab">Smart Lab</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <button
+                id="themeBtn"
+                class="theme-btn"
+                type="button"
+                aria-label="Toggle theme"
+            >
+                🌙
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+             HOME SECTION
+        ========================== -->
+
+        <section id="home" class="hero">
+
+            <div class="hero-content">
+
+                <span class="hero-label">
+                    🇵🇭 PHILIPPINE TRAVEL GUIDE
+                </span>
+
+                <h1>
+                    Discover the
+                    <span>Philippines</span>
+                    Your Way.
+                </h1>
+
+                <p>
+                    Explore beautiful destinations, discover
+                    travel experiences, and plan your next
+                    Philippine adventure with LakbayPH.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#destinations"
+                        class="btn primary-btn"
+                    >
+                        Explore Destinations
+                    </a>
+
+                    <a
+                        href="#planner"
+                        class="btn secondary-btn"
+                    >
+                        Plan My Trip
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             QUICK INFORMATION
+        ========================== -->
+
+        <section class="stats-section">
+
+            <div class="stats-container">
+
+                <div class="stat-card">
+
+                    <h2 id="destCount">6+</h2>
+
+                    <p>
+                        Featured Destinations
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h2>4</h2>
+
+                    <p>
+                        Travel Experiences
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h2>100%</h2>
+
+                    <p>
+                        Philippine Destinations
+                    </p>
+
+                </div>
+
+                <div class="stat-card">
+
+                    <h2>1</h2>
+
+                    <p>
+                        Easy Travel Planner
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DESTINATION EXPLORER
+        ========================== -->
+
+        <section
+            id="destinations"
+            class="section"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    EXPLORE
+                </span>
+
+                <h2>
+                    Find Your Next Destination
+                </h2>
+
+                <p>
+                    Search and filter destinations based
+                    on the type of experience you want.
+                </p>
+
+            </div>
+
+
+            <!-- Search and Filter -->
+
+            <div class="destination-controls">
+
+                <div class="search-box">
+
+                    <span>🔎</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search destinations..."
+                    >
+
+                </div>
+
+
+                <select
+                    id="categoryFilter"
+                    class="category-filter"
+                >
+
+                    <option value="All">
+                        All Destinations
+                    </option>
+
+                    <option value="Beach">
+                        Beach
+                    </option>
+
+                    <option value="Mountain">
+                        Mountain
+                    </option>
+
+                    <option value="City">
+                        City
+                    </option>
+
+                    <option value="Nature">
+                        Nature
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Destination Cards -->
+
+            <div
+                id="destinationGrid"
+                class="destination-grid"
+            >
+
+                <!-- JavaScript will load destination cards here -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRIP MATCHER
+        ========================== -->
+
+        <section
+            id="matcher"
+            class="section matcher-section"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    TRIP MATCHER
+                </span>
+
+                <h2>
+                    Where Should You Go?
+                </h2>
+
+                <p>
+                    Answer a few questions and LakbayPH
+                    will recommend a destination for you.
+                </p>
+
+            </div>
+
+
+            <div class="matcher-container">
+
+                <div class="matcher-info">
+
+                    <div class="matcher-icon">
+                        ✈️
+                    </div>
+
+                    <h3>
+                        Find Your Travel Match
+                    </h3>
+
+                    <p>
+                        Not sure where to travel?
+                        Let the Trip Matcher help you
+                        choose a destination based on
+                        your preferred experience.
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            ✓ Beach and Island
+                        </li>
+
+                        <li>
+                            ✓ Mountain and Cool Weather
+                        </li>
+
+                        <li>
+                            ✓ City and Culture
+                        </li>
+
+                        <li>
+                            ✓ Nature and Adventure
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <div class="quiz-container">
+
+                    <div class="quiz-progress">
+
+                        <div
+                            id="progressBar"
+                            class="progress-bar"
+                        ></div>
+
+                    </div>
+
+
+                    <div
+                        id="quizContainer"
+                        class="quiz-content"
+                    >
+
+                        <!-- Question generated by JavaScript -->
+
+                    </div>
+
+
+                    <div
+                        id="quizResult"
+                        class="quiz-result"
+                    >
+
+                        <!-- Result generated by JavaScript -->
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn secondary-btn"
+                        onclick="restartQuiz()"
+                    >
+                        Restart Quiz
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRAVEL PLANNER
+        ========================== -->
+
+        <section
+            id="planner"
+            class="section planner-section"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    TRAVEL PLANNER
+                </span>
+
+                <h2>
+                    Plan Your Trip
+                </h2>
+
+                <p>
+                    Get an estimated budget and a simple
+                    itinerary based on your trip details.
+                </p>
+
+            </div>
+
+
+            <div class="planner-container">
+
+
+                <!-- Planner Form -->
+
+                <div class="planner-form">
+
+                    <div class="form-group">
+
+                        <label for="plannerDestination">
+                            Destination
+                        </label>
+
+                        <select
+                            id="plannerDestination"
+                            required
+                        >
+
+                            <option value="">
+                                Select a destination
+                            </option>
+
+                            <option value="manila">
+                                Manila
+                            </option>
+
+                            <option value="palawan">
+                                Palawan
+                            </option>
+
+                            <option value="cebu">
+                                Cebu
+                            </option>
+
+                            <option value="baguio">
+                                Baguio
+                            </option>
+
+                            <option value="siargao">
+                                Siargao
+                            </option>
+
+                            <option value="boracay">
+                                Boracay
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="travelers">
+                                Number of Travelers
+                            </label>
+
+                            <input
+                                type="number"
+                                id="travelers"
+                                min="1"
+                                max="20"
+                                value="1"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="days">
+                                Number of Days
+                            </label>
+
+                            <input
+                                type="number"
+                                id="days"
+                                min="1"
+                                max="30"
+                                value="3"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="travelStyle">
+                            Travel Style
+                        </label>
+
+                        <select
+                            id="travelStyle"
+                        >
+
+                            <option value="budget">
+                                Budget Friendly
+                            </option>
+
+                            <option
+                                value="standard"
+                                selected
+                            >
+                                Standard
+                            </option>
+
+                            <option value="comfort">
+                                Comfort
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="btn primary-btn full-btn"
+                        onclick="calculateTrip()"
+                    >
+                        Calculate My Trip
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn outline-btn full-btn"
+                        onclick="surpriseMe()"
+                    >
+                        🎲 Surprise Me
+                    </button>
+
+                </div>
+
+
+                <!-- Planner Result -->
+
+                <div
+                    id="budgetResult"
+                    class="planner-result"
+                >
+
+                    <div class="planner-placeholder">
+
+                        <div class="planner-placeholder-icon">
+                            🗺️
+                        </div>
+
+                        <h3>
+                            Your Trip Plan
+                        </h3>
+
+                        <p>
+                            Fill out the form to see your
+                            estimated trip budget and
+                            itinerary.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             FAVORITES
+        ========================== -->
+
+        <section
+            id="favorites"
+            class="section"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    SAVED DESTINATIONS
+                </span>
+
+                <h2>
+                    My Favorites
+                </h2>
+
+                <p>
+                    Save destinations that you want
+                    to visit later.
+                </p>
+
+            </div>
+
+
+            <div
+                id="favoritesGrid"
+                class="favorites-grid"
+            >
+
+                <!-- Favorites loaded by JavaScript -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRAVEL TIPS
+        ========================== -->
+
+        <section
+            id="tips"
+            class="section tips-section"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    TRAVEL TIPS
+                </span>
+
+                <h2>
+                    Travel Smarter
+                </h2>
+
+                <p>
+                    Simple reminders before going
+                    on your next trip.
+                </p>
+
+            </div>
+
+
+            <div class="tips-grid">
+
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">
+                        🎒
+                    </div>
+
+                    <h3>
+                        Pack Smart
+                    </h3>
+
+                    <p>
+                        Bring only the essentials and
+                        check the weather before your trip.
+                    </p>
+
+                </article>
+
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Set a Budget
+                    </h3>
+
+                    <p>
+                        Prepare a travel budget for
+                        transportation, food, activities,
+                        and accommodation.
+                    </p>
+
+                </article>
+
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        Plan Ahead
+                    </h3>
+
+                    <p>
+                        Research your destination and
+                        prepare your itinerary before traveling.
+                    </p>
+
+                </article>
+
+
+                <article class="tip-card">
+
+                    <div class="tip-icon">
+                        🌱
+                    </div>
+
+                    <h3>
+                        Travel Responsibly
+                    </h3>
+
+                    <p>
+                        Respect local communities,
+                        culture, and the environment.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTACT SECTION
+        ========================== -->
+
+        <section
+            id="contact"
+            class="section contact-section"
+        >
+
+            <div class="section-header">
+
+                <span class="section-label">
+                    CONTACT
+                </span>
+
+                <h2>
+                    Share Your Feedback
+                </h2>
+
+                <p>
+                    Have suggestions for LakbayPH?
+                    Send us your feedback.
+                </p>
+
+            </div>
+
+
+            <div class="contact-container">
+
+
+                <div class="contact-info">
+
+                    <h3>
+                        Help Us Improve LakbayPH
+                    </h3>
+
+                    <p>
+                        Your feedback can help improve
+                        the travel experience and features
+                        of the website.
+                    </p>
+
+
+                    <div class="contact-detail">
+
+                        <span>📍</span>
+
+                        <div>
+
+                            <strong>
+                                Location
+                            </strong>
+
+                            <p>
+                                Philippines
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <span>🌴</span>
+
+                        <div>
+
+                            <strong>
+                                Focus
+                            </strong>
+
+                            <p>
+                                Philippine Travel & Tourism
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-detail">
+
+                        <span>💻</span>
+
+                        <div>
+
+                            <strong>
+                                Platform
+                            </strong>
+
+                            <p>
+                                Web Application
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Contact Form -->
+
+                <form
+                    id="contactForm"
+                    class="contact-form"
+                >
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            placeholder="Write your feedback..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn primary-btn full-btn"
+                    >
+                        Send Feedback
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <section id="flight" class="flight-section">
+            <div class="section-header">
+                <h2>Fly to Your Destination ✈</h2>
+                <p>Choose where you're flying from and where you're going, then watch the flight.</p>
+            </div>
+            <div class="flight-controls">
+                <label>From <select id="flightFrom"></select></label>
+                <label>To <select id="flightTo"></select></label>
+                <button id="flyBtn" class="primary-btn">✈ Start Flight</button>
+            </div>
+            <div class="flight-layout">
+                <svg id="phMap" viewBox="0 0 480 720" aria-label="Map of the Philippines"></svg>
+                <div id="flightInfo" class="flight-info"><p class="flight-hint">Tap a pin on the map or press Start Flight.</p></div>
+            </div>
+        </section>
+
+        <section id="lab" class="lab-section">
+            <div class="section-header">
+                <h2>Smart Trip Lab 🧠</h2>
+                <p>15 guided pages to build, analyze, and perfect your trip. Each tool has its own page. Press Next to move to the following one.</p>
+            </div>
+            <div class="lab-launch">
+                <ul>
+                    <li>🧳 Trip Builder</li><li>🌊 RippleTrip</li><li>🛡 Resilience Score</li><li>⚖️ Flow Balancer</li><li>🕒 Pace Personalizer</li>
+                    <li>💸 Trade-Offs</li><li>🤝 Local Benefit</li><li>👥 FairTrip</li><li>🗓 Season Matcher</li><li>📶 Connectivity</li>
+                    <li>🔍 Explainable Picks</li><li>✈️ Journey Preview</li><li>📊 Budget Breakdown</li><li>🎒 Packing List</li><li>🎫 Trip Report</li>
+                </ul>
+                <a class="primary-btn lab-start" href="lab-01-builder.html">Start Smart Trip Lab →</a>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         DESTINATION MODAL
+    ========================== -->
+
+    <div
+        id="destinationModal"
+        class="modal"
+    >
+
+        <div class="modal-overlay"></div>
+
+        <div class="modal-box">
+
+            <button
+                type="button"
+                class="modal-close"
+                onclick="closeModal()"
+                aria-label="Close modal"
+            >
+                ×
+            </button>
+
+            <div
+                id="modalContent"
+                class="modal-content"
+            >
+
+                <!-- Destination details generated by JS -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         TOAST MESSAGE
+    ========================== -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+        Message
+    </div>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+                    Lakbay<span>PH</span>
+                </a>
+
+                <p>
+                    Explore. Plan. Experience.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#destinations">
+                    Destinations
+                </a>
+
+                <a href="#matcher">
+                    Trip Matcher
+                </a>
+
+                <a href="#planner">
+                    Travel Planner
+                </a>
+
+                <a href="#contact">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 LakbayPH. All rights reserved.
+                </p>
+
+                <p>
+                    Travel and Tourism Project
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <script src="../js/data.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/ui.js"></script>
+    <script src="../js/destinations.js"></script>
+    <script src="../js/planner.js"></script>
+    <script src="../js/matcher.js"></script>
+    <script src="../js/flight.js"></script>
+    <script src="../js/main.js"></script>
+
+</body>
+
+</html>
